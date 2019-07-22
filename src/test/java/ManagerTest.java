@@ -10,7 +10,7 @@ public class ManagerTest {
 
     @Before
     public void setup(){
-        manager = new Manager ("Laura", "AB 12 34 56 C", 25000, "Team A");
+        manager = new Manager ("Laura", "AB 12 34 56 C", 50000, "Team A");
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ManagerTest {
 
     @Test
     public void canGetSalary(){
-        assertEquals(25000, manager.getSalary(), 0.01);
+        assertEquals(50000, manager.getSalary(), 0.01);
     }
 
     @Test
@@ -36,12 +36,12 @@ public class ManagerTest {
     @Test
     public void canIncreaseSalary(){
         manager.raiseSalary(5000);
-        assertEquals(30000, manager.getSalary(), 0.01);
+        assertEquals(55000, manager.getSalary(), 0.01);
     }
 
     @Test
     public void canGetBonus(){
-        assertEquals(250, manager.payBonus(), 0.01);
+        assertEquals(500, manager.payBonus(), 0.01);
     }
 
 }

@@ -35,13 +35,31 @@ public class ManagerTest {
 
     @Test
     public void canIncreaseSalary(){
-        manager.raiseSalary(5000);
-        assertEquals(55000, manager.getSalary(), 0.01);
+        manager.raiseSalary(1.05);
+        assertEquals(52500, manager.getSalary(), 0.01);
+    }
+
+    @Test
+    public void cannotApplyNegativeSalaryRaise(){
+        manager.raiseSalary(-1.05);
+        assertEquals(50000, manager.getSalary(), 0.01);
     }
 
     @Test
     public void canGetBonus(){
         assertEquals(500, manager.payBonus(), 0.01);
+    }
+
+    @Test
+    public void canChangeName(){
+        manager.setName("Alice");
+        assertEquals("Alice", manager.getName());
+    }
+
+    @Test
+    public void cannotChangeName(){
+        manager.setName(null);
+        assertEquals("Laura", manager.getName());
     }
 
 }

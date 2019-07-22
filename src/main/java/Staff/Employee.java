@@ -17,7 +17,9 @@ public abstract class Employee {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name != null) {
+            this.name = name;
+        }
     }
 
     public String getNiNumber() {
@@ -37,9 +39,11 @@ public abstract class Employee {
     }
 
     public double raiseSalary(double raise){
-        double newSalary = salary + raise;
-        this.salary = newSalary;
-        return newSalary;
+       if(raise > 0) {
+           double newSalary = salary * raise;
+           this.salary = newSalary;
+       }
+        return this.salary;
     }
 
     public double payBonus(){

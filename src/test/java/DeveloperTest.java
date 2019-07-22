@@ -31,12 +31,30 @@ public class DeveloperTest {
 
     @Test
     public void canIncreaseSalary(){
-        developer.raiseSalary(5000);
-        assertEquals(30000, developer.getSalary(), 0.01);
+        developer.raiseSalary(1.05);
+        assertEquals(26250, developer.getSalary(), 0.01);
+    }
+
+    @Test
+    public void cannotApplyNegativeSalaryRaise(){
+        developer.raiseSalary(-1.05);
+        assertEquals(25000, developer.getSalary(), 0.01);
     }
 
     @Test
     public void canGetBonus(){
         assertEquals(250, developer.payBonus(), 0.01);
+    }
+
+    @Test
+    public void canChangeName(){
+        developer.setName("Alice");
+        assertEquals("Alice", developer.getName());
+    }
+
+    @Test
+    public void cannotChangeName(){
+        developer.setName(null);
+        assertEquals("Gordon", developer.getName());
     }
 }

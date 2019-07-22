@@ -38,10 +38,24 @@ public class EmployeeTest {
     }
 
     @Test
-    public void canChangeNameOfEmployee(){
+    public void canChangeEmployee(){
         employee = new Manager("Laura", "AB 12 34 56 C", 50000, "Team A");
         employee = new DatabaseAdmin("Bob", "EF 34 56 78 G", 25000);
         assertEquals("Bob", employee.getName());
+    }
+
+    @Test
+    public void canChangeEmployeeName(){
+        employee = new Manager("Laura", "AB 12 34 56 C", 50000, "Team A");
+        employee.setName("Alice");
+        assertEquals("Alice", employee.getName());
+    }
+
+    @Test
+    public void cannotChangeEmployeeName(){
+        employee = new Manager("Laura", "AB 12 34 56 C", 50000, "Team A");
+        employee.setName(null);
+        assertEquals("Laura", employee.getName());
     }
 
     @Test

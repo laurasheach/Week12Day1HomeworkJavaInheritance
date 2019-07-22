@@ -30,18 +30,36 @@ public class DirectorTest {
 
     @Test
     public void canIncreaseSalary(){
-        director.raiseSalary(5000);
-        assertEquals(80000, director.getSalary(), 0.01);
+        director.raiseSalary(1.05);
+        assertEquals(78750, director.getSalary(), 0.01);
+    }
+
+    @Test
+    public void cannotApplyNegativeSalaryRaise(){
+        director.raiseSalary(-1.05);
+        assertEquals(75000, director.getSalary(), 0.01);
     }
 
     @Test
     public void canGetBonus(){
-        assertEquals(750, director.payBonus(), 0.01);
+        assertEquals(1500, director.payBonus(), 0.01);
     }
 
     @Test
     public void canGetBudget(){
         assertEquals(100000, director.getBudget(), 0.01);
+    }
+
+    @Test
+    public void canChangeName(){
+        director.setName("Alice");
+        assertEquals("Alice", director.getName());
+    }
+
+    @Test
+    public void cannotChangeName(){
+        director.setName(null);
+        assertEquals("Hazel", director.getName());
     }
 
 }

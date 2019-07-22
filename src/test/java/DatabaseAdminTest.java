@@ -30,13 +30,31 @@ public class DatabaseAdminTest {
 
     @Test
     public void canIncreaseSalary(){
-        databaseAdmin.raiseSalary(5000);
-        assertEquals(30000, databaseAdmin.getSalary(), 0.01);
+        databaseAdmin.raiseSalary(1.05);
+        assertEquals(26250, databaseAdmin.getSalary(), 0.01);
+    }
+
+    @Test
+    public void cannotApplyNegativeSalaryRaise(){
+        databaseAdmin.raiseSalary(-1.05);
+        assertEquals(25000, databaseAdmin.getSalary(), 0.01);
     }
 
     @Test
     public void canGetBonus(){
         assertEquals(250, databaseAdmin.payBonus(), 0.01);
+    }
+
+    @Test
+    public void canChangeName(){
+        databaseAdmin.setName("Alice");
+        assertEquals("Alice", databaseAdmin.getName());
+    }
+
+    @Test
+    public void cannotChangeName(){
+        databaseAdmin.setName(null);
+        assertEquals("Bob", databaseAdmin.getName());
     }
 
 }
